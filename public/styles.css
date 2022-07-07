@@ -1,17 +1,74 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: 'Mingzat', sans-serif;
+    line-height: 0.5cm;
 }
 
 
-footer{
-    width: 100%;
+.addNote{
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px  rgba(80, 77, 77, 0.5), -2px -2px 3px  rgba(80, 77, 77, 0.5);
+    overflow-wrap: break-word;
+    margin: 30px auto;
+    width: 300px;
+    min-height: 150px;
+    position: relative;
+}
+
+
+.addNote .inputTitle, .inputNote{
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+
+.addNote .inputNote{
+    font-size: 1em;
+    margin-top: 5px;
+    resize: none;
+}
+
+.addNoteBtn{
+    font-size: large;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(255, 185, 45);
+    color: white;
+    height: 40px;
+    width: 40px;
     position: absolute;
-    text-align: center;
-    bottom: 4px;
-    color: rgb(83, 83, 83);
+    bottom : -15px;
+    right: 10px;
 }
 
+.allNotes{
+    display:flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-top: 5px  dotted rgb(252, 225, 172);
+    margin:  20px 35px 0;
+    padding :  0 0 50px 0;
+}
+
+body{
+    min-height: 100vh;
+    position: relative;
+}
+
+.footer{
+    background-color: rgb(255, 214, 133);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 10px 0;
+    width:100%;
+}
 
 header {
     background-color: rgb(255, 185, 45);
@@ -20,25 +77,29 @@ header {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-
 .note{
-    margin: 25px;
+    margin: 20px;
     padding: 10px;
-    background-color: rgb(242, 246, 250);
+    background-color: rgb(255, 255, 255);
     width: 240px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px rgba(80, 77, 77, 0.5);
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px  rgba(80, 77, 77, 0.5), -2px -2px 3px  rgba(80, 77, 77, 0.5);
+    overflow-wrap: break-word;
     float: left;
 }
 
-
 .note h1{
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin-bottom: 5px;
 }
-
-
 .note p{
-    font-size: 1.1rem;
+    font-size: 1em;
     margin-bottom: 5px;
 }
+
+
+@media only screen and (max-width: 700px){
+    .allNotes{
+        justify-content: center;
+    }
+} 
