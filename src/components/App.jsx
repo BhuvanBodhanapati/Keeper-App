@@ -3,7 +3,7 @@ import Header from './Header';
 import AddNote from './AddNote';
 import Note from './Note';
 import Footer from './Footer';
-import notes from '../notes'
+import {v4 as uuidv4} from 'uuid';
 
 
 
@@ -38,8 +38,19 @@ function App(){
         setInputNote( { title : "" ,content : "" } )
     }
 
+    function deleteNote(id){
+        console.log(id);
+        setAllNotes( (prevNotes) => {
+            return (
+                prevNotes.filter( (note, index) => {
+                    return (index!=id);
+                })
+            )
+        });
+    }
+
     return (
-        <div >
+        <div>
             <Header />
             <AddNote 
                 title = {inputNote.title}
@@ -50,9 +61,11 @@ function App(){
             <div className='allNotes'>
                 {allNotes.map((note,index) => (
                         <Note 
-                            key = {index}
+                            key = {uuidv4()}
+                            index = {index}
                             title = {note.title}
                             content = {note.content}
+                            deleteNote = {deleteNote}
                         />
                     )
                 )}

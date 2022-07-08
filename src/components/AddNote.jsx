@@ -10,7 +10,7 @@ function AddNote(props){
                 onChange={props.getNote}
                 value={props.title}>
             </input> 
-            <textarea cols='30' rows='5'
+            <textarea cols='30' rows='6' 
                     placeholder='Take a note...' 
                     className='inputNote'
                     name='content'
