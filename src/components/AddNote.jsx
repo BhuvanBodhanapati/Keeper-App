@@ -1,27 +1,69 @@
-import React from 'react';
+import React, {useState} from 'react';
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
+import { style } from '@mui/system';
+
 
 function AddNote(props){
+    const [expand , setExpand] = useState(false);
+
+    const [inputNote, setInputNote] = useState({
+        title : "" ,
+        content : ""
+    });
+
+    function takeNote(){
+        setExpand(true);
+    }
+
+    function getNote(event){
+        const inputName = event.target.name;
+        const inputValue = event.target.value;
+        setInputNote((prevValue)=>(
+            {
+                ...prevValue,
+                 [inputName] : inputValue
+            }
+        ));
+    }
+
+    function submitNote(event){
+        props.addNote(inputNote);
+        setInputNote({
+            title : "" ,
+            content : ""
+        });
+        setExpand(false);
+        event.preventDefault();
+    }
+
+
     return (
-        <div className='addNote'>
+        <form className='addNote' >
             <input type='text'
                 placeholder='Title' 
                 className='inputTitle'
                 name='title'
-                onChange={props.getNote}
-                value={props.title}>
+                onChange={(event) => (getNote(event))}
+                value={inputNote.title}
+                style = {{display: expand ? 'block' : 'none'}}>
             </input> 
-            <textarea cols='30' rows='6' 
-                    placeholder='Take a note...' 
-                    className='inputNote'
-                    name='content'
-                    value={props.content}
-                    onChange={props.getNote}>
+            <textarea rows={ !expand ?  0 : 4}
+                placeholder='Take a note...' 
+                className='inputNote'
+                name='content'
+                value={inputNote.content}
+                onFocus= {()=>{ takeNote()}}
+                onChange={(event)=> {getNote(event)}}>
             </textarea>
-            <button className='addNoteBtn'
-                    onClick={props.addNote}>
-                     +
-            </button>
-        </div>
+            <Zoom in={ expand ? true : false}>
+                <Fab className='addNoteBtn'
+                        onClick={(event)=> {submitNote(event)}}>
+                        <AddIcon />
+                </Fab>
+            </Zoom>
+        </form>
      )
 }
 

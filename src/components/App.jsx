@@ -8,25 +8,10 @@ import {v4 as uuidv4} from 'uuid';
 
 
 function App(){
-    const [inputNote, setInputNote] = useState({
-        title : "" ,
-        content : ""
-    })
 
     const [allNotes, setAllNotes] = useState([]);
 
-    function getNote(event){
-        const inputName = event.target.name;
-        const inputValue = event.target.value;
-        setInputNote((prevValue)=>(
-            {
-                ...prevValue,
-                 [inputName] : inputValue
-            }
-        ));
-    }
-
-    function addNote(){
+    function addNote(inputNote){
         if(inputNote.title.length!=0 || inputNote.content.length!=0){
             setAllNotes((prevValues) => (
                 [
@@ -35,7 +20,6 @@ function App(){
                 ]
             ));
         }
-        setInputNote( { title : "" ,content : "" } )
     }
 
     function deleteNote(id){
@@ -53,9 +37,6 @@ function App(){
         <div>
             <Header />
             <AddNote 
-                title = {inputNote.title}
-                content = {inputNote.content}
-                getNote = {getNote}
                 addNote = {addNote}
             />
             <div className='allNotes'>

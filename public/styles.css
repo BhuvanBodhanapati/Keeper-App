@@ -14,36 +14,14 @@
     overflow-wrap: break-word;
     margin: 30px auto;
     width: 350px;
-    min-height: 150px;
+    min-height: 20px;
     position: relative;
 }
 
-
-.addNote .inputTitle, .inputNote{
-    border: none;
-    outline: none;
-    font-size: 1.2em;
-    margin-bottom: 5px;
-}
-
-
 .addNote .inputNote{
     font-size: 1em;
-    margin-top: 5px;
+    margin: 0 0 10px;
     resize: none;
-}
-
-.addNoteBtn{
-    font-size: large;
-    border: none;
-    border-radius: 50%;
-    background-color: rgb(255, 185, 45);
-    color: white;
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    bottom : -15px;
-    right: 10px;
 }
 
 .allNotes{
@@ -51,12 +29,27 @@
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    border-top: 5px  dotted rgb(252, 225, 172);
     margin:  20px 45px 0;
-    padding :  0 0 50px 0;
+    padding :  0 0 100px 0;
+}
+
+.addNote .addNoteBtn{
+    position: absolute;
+    bottom: -25px;
+    right:15px;
+    background-color: rgb(255, 185, 45);
+    color: white;
+    height: 50px;
+    width: 50px;
+}
+
+.addNote .addNoteBtn:hover{
+    background-color: rgb(255, 185, 45);
+    color: white;
 }
 
 body{
+    background-color: #f1f1f1;
     min-height: 100vh;
     position: relative;
 }
@@ -72,7 +65,7 @@ button:hover{
     color: rgb(255, 185, 45);
     position: absolute;
     right: 8px;
-    bottom: 8px;
+    bottom: 1px;
 }
 
 .footer{
@@ -89,6 +82,14 @@ header {
     color: white;
     padding: 15px 45px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.inputTitle, .inputNote{
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    width: 350px;
 }
 
 .note{
